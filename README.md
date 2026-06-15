@@ -23,15 +23,40 @@ tarjetas siempre sincronizadas.
 
 ![Tarjetas generadas en Anki](Screenshots/anki.png)
 
-### MUY IMPORTANTE 
+## MUY IMPORTANTE
 
-Los LLMs no son determinísticos, puede haber errores de traducción de imágenes a MD. No se confíen y verifiquen todo lo que estudian.
+Los LLMs no son determinísticos, puede haber errores de traducción de imágenes a
+MD. No se confíen y verifiquen todo lo que estudian.
 
 ## Requisitos
 
 - **Python ≥ 3.10**
 - **[uv](https://docs.astral.sh/uv/)**
 - **Anki** con el add-on **AnkiConnect**.
+
+## Instalar uv
+
+`uv` es el gestor de paquetes/entornos que corre los scripts (`uv run …`).
+
+- **macOS / Linux**:
+
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+- **Windows** (PowerShell):
+
+  ```powershell
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+
+- **Con package manager**:
+  - macOS (Homebrew): `brew install uv`
+  - Arch: `sudo pacman -S uv`
+  - Cualquier OS (pipx): `pipx install uv`
+
+Más detalles y opciones en la
+[documentación oficial](https://docs.astral.sh/uv/getting-started/installation/).
 
 ## Instalar Anki
 
@@ -97,6 +122,15 @@ que ya existen. Para previsualizar sin tocar Anki:
 uv run anki_export.py --dry-run
 ```
 
+## Eliminar tarjetas
+
+Si eliminas un id de anki en los archivos de markdown el script no elimina la
+tarjeta en anki por seguridad. Entonces para eliminar, primero borrar los tags
+de anki en los archivos MD y despues eliminar la tarjeta en anki.
+
+Tengan cuidado de eliminar la tarjeta de anki y no elimiar los tags en los
+archivos MD porque el script de sync puede fallar.
+
 ## Convertir los PDFs a Markdown con un LLM
 
 Las clases vienen en PDF (diapositivas de notas a mano) y hay que pasarlas a
@@ -123,7 +157,6 @@ Convertí las clases PDF a notas de Markdown siguiendo las instrucciones en @CLA
 El agente compara `Clases PDF/` con `Resources/Exactas/Fisica 4/`, lee cada PDF
 pendiente como imagen y genera el `.md` correspondiente. Conviene revisar las
 fórmulas LaTeX resultantes, ya que el material original son notas a mano.
-
 
 ## Resumen del flujo completo
 
@@ -224,8 +257,8 @@ El material de las clases es obra del profesor **Pablo Tamborenea**, de la
 materia **Física 4** de la FCEN (UBA). Sitio de la materia:
 <https://asignaturas.df.uba.ar/f4-tamborenea/principal/>.
 
-Este repo solo organiza ese material para estudiar con Anki; todo el contenido PDF
-de las clases pertenece a su autor.
+Este repo solo organiza ese material para estudiar con Anki; todo el contenido
+PDF de las clases pertenece a su autor.
 
 ## Licencia
 
