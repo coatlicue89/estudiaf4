@@ -23,6 +23,10 @@ tarjetas siempre sincronizadas.
 
 ![Tarjetas generadas en Anki](Screenshots/anki.png)
 
+### MUY IMPORTANTE 
+
+Los LLMs no son determinísticos, puede haber errores de traducción de imágenes a MD. No se confíen y verifiquen todo lo que estudian.
+
 ## Requisitos
 
 - **Python ≥ 3.10**
@@ -119,6 +123,7 @@ Convertí las clases PDF a notas de Markdown siguiendo las instrucciones en @CLA
 El agente compara `Clases PDF/` con `Resources/Exactas/Fisica 4/`, lee cada PDF
 pendiente como imagen y genera el `.md` correspondiente. Conviene revisar las
 fórmulas LaTeX resultantes, ya que el material original son notas a mano.
+
 
 ## Resumen del flujo completo
 
@@ -219,11 +224,11 @@ El material de las clases es obra del profesor **Pablo Tamborenea**, de la
 materia **Física 4** de la FCEN (UBA). Sitio de la materia:
 <https://asignaturas.df.uba.ar/f4-tamborenea/principal/>.
 
-Este repo solo organiza ese material para estudiar con Anki; todo el contenido
+Este repo solo organiza ese material para estudiar con Anki; todo el contenido PDF
 de las clases pertenece a su autor.
 
 ## Licencia
 
 El código de este proyecto se distribuye bajo licencia **MIT** (ver
 [`LICENSE`](LICENSE)). La licencia cubre los scripts y herramientas del repo, no
-el material de las clases, cuyos derechos pertenecen a Pablo Tamborenea.
+el material PDF de las clases, cuyos derechos pertenecen a Pablo Tamborenea.
