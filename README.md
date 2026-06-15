@@ -127,7 +127,7 @@ fórmulas LaTeX resultantes, ya que el material original son notas a mano.
 
 ## Resumen del flujo completo
 
-1. `python3 bajar_clases.py` → baja los PDFs de las clases.
+1. `python bajar_clases.py` → baja los PDFs de las clases.
 2. Convertir cada PDF a Markdown (formato con LaTeX para las fórmulas). Yo lo
    hice usando claude con este prompt: "Puedes convertir las clases PDF a notas
    de markdown siguiendo las instrucciones en @CLAUDE.md"
@@ -145,7 +145,7 @@ generadas:
 ### `bajar_clases.py`
 
 ```bash
-python3 bajar_clases.py
+python bajar_clases.py
 ```
 
 Lee la página de referencia, baja todos los PDFs y saltea los ya descargados. Se
