@@ -1,0 +1,24 @@
+{
+  "name": "estudiaf4",
+  "version": "1.0.0",
+  "description": "Baja las clases de **[Física 4 (Tamborenea)](https://asignaturas.df.uba.ar/f4-tamborenea/principal/)** y genera tarjetas de Anki a partir de notas Markdown.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coatlicue89/estudiaf4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/coatlicue89/estudiaf4/issues"
+  },
+  "homepage": "https://github.com/coatlicue89/estudiaf4#readme",
+  "devDependencies": {
+    "katex": "^0.17.0"
+  }
+}

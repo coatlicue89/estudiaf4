@@ -14,8 +14,11 @@ import sys
 import urllib.request
 
 URL = "https://asignaturas.df.uba.ar/f4-tamborenea/referencia/"
-DEST = "Resources/Exactas/Fisica 4"
+DEST = "Clases PDF"
 HEADERS = {"User-Agent": "Mozilla/5.0 (bajar_clases.py)"}
+
+# PDFs a ignorar (no son clases con notas a mano)
+IGNORAR = {"clase_1.pdf"}
 
 
 def descargar(url, headers=None):
@@ -47,6 +50,10 @@ def main():
     for pdf in pdfs:
         nombre = os.path.basename(pdf)
         destino = os.path.join(dest, nombre)
+
+        if nombre in IGNORAR:
+            print(f"  ignorado:  {nombre}")
+            continue
 
         if os.path.exists(destino):
             print(f"  ya existe: {nombre}")

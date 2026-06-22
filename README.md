@@ -33,6 +33,8 @@ MD. No se confíen y verifiquen todo lo que estudian.
 - **Python ≥ 3.10**
 - **[uv](https://docs.astral.sh/uv/)**
 - **Anki** con el add-on **AnkiConnect**.
+- _(Opcional)_ **[Obsidian](https://obsidian.md/)** u otro editor para leer las
+  notas Markdown con LaTeX y wikilinks renderizados.
 
 ## Instalar uv
 
@@ -74,15 +76,34 @@ Más detalles y opciones en la
 3. Dejar **Anki abierto** al correr `anki_export.py` (escucha en
    `http://localhost:8765`).
 
+## Instalar Obsidian (opcional)
+
+Solo si querés leer las notas Markdown con LaTeX y wikilinks renderizados; no
+hace falta para generar las tarjetas.
+
+- **macOS / Windows**: descargar desde <https://obsidian.md/download>.
+- **Linux**:
+  - Arch (AUR): `yay -S obsidian` (o el paquete `obsidian` si está en tu repo)
+  - Cualquier distro (Flatpak): `flatpak install flathub md.obsidian.Obsidian`
+  - o el AppImage oficial desde <https://obsidian.md/download>.
+
+Para verlas, abrí esta carpeta del repo como **vault** en Obsidian.
+
 ## Crear las tarjetas
 
 Las notas markdown estan en `Resources/Exactas/Fisica 4/`. Y a modo de ejemplo
 hay una tarjeta creada al final de la clase 20.
 
-Para crear tus tarjetas:
+Para crear tus tarjetas (podés editar los `.md` con cualquier editor de texto,
+pero [Obsidian](#instalar-obsidian-opcional) es cómodo porque renderiza el LaTeX
+y los wikilinks mientras escribís):
 
 1. Escribir o convertir la clase a un `.md` dentro de
-   `Resources/Exactas/Fisica 4/`.
+   `Resources/Exactas/Fisica 4/`. La fuente no tiene que ser necesariamente un
+   PDF: puede ser una foto de tus propias notas, un screenshot, un apunte, etc.
+   Ver
+   [Convertir los PDFs a Markdown con un LLM](#convertir-los-pdfs-a-markdown-con-un-llm)
+   para hacerlo con un agente.
 2. Marcar cada par pregunta/respuesta con los tags #anki-q #anki-a #anki-end:
 
    ```text
@@ -126,7 +147,8 @@ uv run anki_export.py --dry-run
 
 Si eliminas un id de anki en los archivos de markdown el script no elimina la
 tarjeta en anki por seguridad. Entonces para eliminar, primero borrar los tags
-de anki en los archivos MD y despues eliminar la tarjeta en anki.
+de anki en los archivos MD (podés editarlos con cualquier editor de texto o con
+[Obsidian](#instalar-obsidian-opcional)) y despues eliminar la tarjeta en anki.
 
 Tengan cuidado de eliminar la tarjeta de anki y no elimiar los tags en los
 archivos MD porque el script de sync puede fallar.
@@ -232,24 +254,6 @@ Constantes al principio de cada script:
   bloque; es lo que evita el duplicado al re-sincronizar.
 - **`media no encontrada`** → la imagen/audio referenciada no existe en el
   vault; revisar el nombre o la ruta.
-
-## Bonus
-
-Las notas en Markdown no sirven solo para Anki. Como son texto plano con enlaces
-`[[wikilink]]`, programas de _personal knowledge management_ como
-[Obsidian](https://obsidian.md/) las leen directamente y arman un **grafo** de
-relaciones entre notas, donde cada archivo es un nodo y cada wikilink una
-arista. Eso ayuda a descubrir conexiones entre temas que de otra forma pasarían
-desapercibidas.
-
-Es un flujo muy usado en investigación: combinado con gestores de bibliografía
-como [Zotero](https://www.zotero.org/) (y plugins como
-[Zotero Integration](https://github.com/mgmeyers/obsidian-zotero-integration)),
-permite tomar notas enlazadas a las referencias y redactar papers desde ahí.
-
-Además, al ser texto plano, estas mismas notas funcionan muy bien como
-**contexto para LLMs** (RAG, bases de conocimiento, etc.): son fáciles de
-versionar, indexar y pasar como entrada a un modelo.
 
 ## Créditos
 
